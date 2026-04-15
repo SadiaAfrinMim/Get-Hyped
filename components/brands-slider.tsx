@@ -1,6 +1,8 @@
-'use client'
+"use client"
 
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
+import { gsap } from 'gsap'
 
 const brands = [
   { name: 'Bullit', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Bullit_logo.svg/1200px-Bullit_logo.svg.png' },
@@ -18,7 +20,9 @@ const brands = [
 
 export default function BrandsSlider() {
   const [isVisible, setIsVisible] = useState(false)
+  const [isHovering, setIsHovering] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
+  const tweenRef = useRef<gsap.core.Tween | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,21 +51,22 @@ export default function BrandsSlider() {
        {/* Infinite Scroll Wrapper */}
        <div className="relative flex overflow-hidden group">
          {/* লুপ কন্টিনিউ রাখার জন্য অ্যারেটি দুইবার ম্যাপ করা হয়েছে */}
-         <div className={`flex gap-6 ${isVisible ? 'animate-marquee' : ''}`}
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}>
+          <div className={`flex gap-6 ${isVisible ? 'animate-marquee' : ''} ${isHovering ? 'pause-animation' : ''}`}
+               onMouseEnter={() => setIsHovering(true)}
+               onMouseLeave={() => setIsHovering(false)}>
            {[...brands, ...brands].map((brand, index) => (
-             <div
-               key={index}
-               className="flex-shrink-0 w-72 h-64 border-2 border-gray-100 rounded-[32px] flex items-center justify-center bg-gray-50/50 hover:border-black hover:bg-white transition-all duration-500 cursor-pointer group/card"
-             >
-               <div className="p-10 w-full h-full flex items-center justify-center">
-                 <img
-                   src={brand.logo}
-                   alt={brand.name}
-                   className="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 group-hover/card:scale-110 transition-all duration-500"
-                 />
-               </div>
+              <div
+                key={index}
+                 className="flex-shrink-0 w-72 h-64 border-2 border-gray-100 group-hover/card:border-blue-500 rounded-[32px] flex items-center justify-center bg-gray-50/50 hover:bg-white transition-all duration-500 cursor-pointer group/card"
+              >
+                <div className="relative p-10 w-full h-full flex items-center justify-center">
+                  <Image
+                    fill
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 group-hover/card:scale-110 transition-all duration-500"
+                  />
+                </div>
              </div>
            ))}
          </div>

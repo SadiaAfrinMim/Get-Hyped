@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
+import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
 
 const contentCards = [
   {
@@ -10,7 +13,7 @@ const contentCards = [
     description: 'Voor Bullit vertaalden we cultuur en energie naar social-first shorts met resultaat.',
     label: 'Bullit',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop',
-    hexColor: '#F15A29', // ছবিতে থাকা অরেঞ্জ কালার
+    hexColor: '#F15A29',
   },
   {
     slug: 'roasta',
@@ -18,7 +21,7 @@ const contentCards = [
     description: 'Met to-the-point visuals brengen we de pure smaak van Jamaica over.',
     label: 'Roasta',
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=800&fit=crop',
-    hexColor: '#1A73E8', // ব্লু কালার
+    hexColor: '#1A73E8',
   },
   {
     slug: 'loco-loco',
@@ -26,7 +29,7 @@ const contentCards = [
     description: 'Voor Loco vertaalden we sfeer naar shorts die werken.',
     label: 'Loco',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop',
-    hexColor: '#1DB954', // গ্রিন কালার
+    hexColor: '#1DB954',
   },
 ]
 
@@ -47,6 +50,24 @@ export default function ContentSlider() {
     return () => observer.disconnect()
   }, [])
 
+  useGSAP(() => {
+    const cards = gsap.utils.toArray<HTMLElement>('.card-item')
+    cards.forEach((card) => {
+      const img = card.querySelector('img')
+      const contentBox = card.querySelector('.content-box')
+
+      card.addEventListener('mouseenter', () => {
+        gsap.to(img, { scale: 1.05, duration: 0.5, ease: 'power2.out' })
+        gsap.to(contentBox, { y: -10, duration: 0.5, ease: 'power2.out' })
+      })
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(img, { scale: 1, duration: 0.5, ease: 'power2.out' })
+        gsap.to(contentBox, { y: 0, duration: 0.5, ease: 'power2.out' })
+      })
+    })
+  }, { scope: sectionRef })
+
   return (
     <section
       ref={sectionRef}
@@ -55,6 +76,7 @@ export default function ContentSlider() {
       }`}
     >
       <div className="max-w-7xl mx-auto">
+
         {/* Header */}
         <div className="mb-16">
           <h2 className="text-5xl md:text-7xl font-black mb-6 text-black leading-[1.1] tracking-tighter">
@@ -70,39 +92,47 @@ export default function ContentSlider() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           {contentCards.map((card, index) => (
             <Link
               key={card.slug}
               href={`/work/${card.slug}`}
-              className="group relative block animate-fade-in-up"
+              className={`card-item group relative block animate-fade-in-up ${
+                index === 0 ? 'lg:mt-12' : index === 2 ? 'lg:-mt-12' : ''
+              }`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              {/* Card Container with Dynamic Border */}
+              {/* Card Container */}
               <div 
                 className="relative h-[550px] rounded-[45px] overflow-hidden border-[6px] transition-all duration-500 hover:shadow-2xl"
                 style={{ borderColor: card.hexColor }}
               >
-                {/* Background Image */}
-                <img
+                {/* Image */}
+                <Image
+                  fill
                   src={card.image}
                   alt={card.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover"
                 />
 
-                {/* Floating Content Box - Exactly as seen in image_256c8a.png */}
-                <div 
-                  className="absolute bottom-4 left-4 right-4 p-8 rounded-[35px] flex flex-col justify-between min-h-[200px]"
-                  style={{ backgroundColor: card.hexColor }}
+                {/* Content Box */}
+                <div
+                  className="content-box absolute bottom-4 left-4 right-4 p-8 rounded-2xl overflow-hidden flex flex-col justify-between min-h-[200px]"
+                  style={{
+                    backgroundColor: card.hexColor,
+                    clipPath: "polygon(0 18%, 100% 0, 100% 100%, 0 100%)",
+                    WebkitClipPath: "polygon(0 18%, 100% 0, 100% 100%, 0 100%)",
+                    borderRadius: "24px"
+                  }}
                 >
-                  {/* Arrow Icon Button */}
+                  {/* Arrow */}
                   <div className="absolute top-4 right-4 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg transform transition-transform group-hover:rotate-45">
                     <svg 
-                       className="w-6 h-6" 
-                       style={{ color: card.hexColor }}
-                       fill="none" 
-                       stroke="currentColor" 
-                       viewBox="0 0 24 24"
+                      className="w-6 h-6" 
+                      style={{ color: card.hexColor }}
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
@@ -118,7 +148,7 @@ export default function ContentSlider() {
                     {card.description}
                   </p>
 
-                  {/* Label (Bullit/Roasta) */}
+                  {/* Label */}
                   <div className="inline-block self-start bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-xl text-white font-bold text-sm tracking-wide">
                     {card.label}
                   </div>

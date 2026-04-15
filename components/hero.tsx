@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -62,10 +62,43 @@ const Hero = () => {
 
   }, { scope: container });
 
+  useEffect(() => {
+    const section = container.current;
+    if (!section) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateY = ((mouseX - centerX) / centerX) * 5;
+      const rotateX = ((mouseY - centerY) / centerY) * 5;
+      const cards = gsap.utils.toArray<HTMLElement>(".card-item");
+      cards.forEach((card) => {
+        const restRotation = parseFloat(card.getAttribute('data-rotation') || '0');
+        gsap.to(card, {
+          rotationY: restRotation + rotateY,
+          rotationX: rotateX,
+          duration: 0.3,
+          ease: "power2.out",
+          overwrite: "auto"
+        });
+      });
+    };
+
+    section.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      section.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
   return (
-    <section 
-      ref={container} 
+    <section
+      ref={container}
       className="min-h-screen bg-[#FDF8F1] px-6 py-16 md:py-24 flex flex-col items-center overflow-hidden"
+      style={{ perspective: '1000px' }}
     >
       {/* Top Header */}
       <div className="max-w-6xl w-full mb-16">

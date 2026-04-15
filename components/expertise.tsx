@@ -1,6 +1,7 @@
-'use client'
+"use client"
 
 import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 
 const expertiseItems = [
   {
@@ -56,7 +57,7 @@ const expertiseItems = [
 export default function Expertise() {
   return (
     <section id="expertise" className="bg-[#FDF8F1] py-20 px-6">
-      <div className="max-w-5xl mx-auto flex flex-col gap-10">
+      <div className="max-w-7xl mx-auto flex flex-col gap-10">
         
         {expertiseItems.map((item, index) => (
           <div
@@ -103,11 +104,12 @@ export default function Expertise() {
 
                   {/* RIGHT IMAGE */}
                   <div className="flex justify-center lg:justify-end">
-                    <div className={`w-full max-w-sm aspect-square rounded-[32px] overflow-hidden border-[10px] ${item.borderColor} shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500`}>
-                      <img
+                    <div className={`relative w-full max-w-sm aspect-square rounded-[32px] overflow-hidden border-[10px] ${item.borderColor} shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500`}>
+                      <Image
+                        fill
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover"
+                        className="object-cover"
                       />
                     </div>
                   </div>
@@ -116,11 +118,8 @@ export default function Expertise() {
             </div>
           </div>
         ))}
-        
+
       </div>
-      
-      {/* স্পেসার: শেষ কার্ডটি যাতে স্ক্রল করে ওপরে উঠতে পারে */}
-      <div className="h-[50vh]" />
     </section>
   )
 }
