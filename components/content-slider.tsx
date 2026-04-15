@@ -117,7 +117,7 @@ export default function ContentSlider() {
 
                 {/* Content Box */}
                 <div
-                  className="content-box absolute bottom-4 left-4 right-4 p-8 rounded-2xl overflow-hidden flex flex-col justify-between min-h-[200px]"
+                  className="content-box absolute  bottom-4 left-4 right-4 p-8 rounded-2xl overflow-hidden flex flex-col justify-between min-h-[200px]"
                   style={{
                     backgroundColor: card.hexColor,
                     clipPath: "polygon(0 18%, 100% 0, 100% 100%, 0 100%)",
@@ -139,7 +139,7 @@ export default function ContentSlider() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl md:text-3xl font-black text-white leading-tight mb-4 pr-10">
+                  <h3 className="text-2xl md:text-3xl pt-6 font-black text-white leading-tight mb-4 pr-10">
                     {card.title}
                   </h3>
 

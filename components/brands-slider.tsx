@@ -27,7 +27,12 @@ export default function BrandsSlider() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          if (!tweenRef.current) {
+            tweenRef.current = gsap.to('.marquee-div', { x: '-50%', duration: 40, ease: 'none', repeat: -1 })
+          }
+        }
       },
       { threshold: 0.1 }
     )
@@ -51,9 +56,15 @@ export default function BrandsSlider() {
        {/* Infinite Scroll Wrapper */}
        <div className="relative flex overflow-hidden group">
          {/* লুপ কন্টিনিউ রাখার জন্য অ্যারেটি দুইবার ম্যাপ করা হয়েছে */}
-          <div className={`flex gap-6 ${isVisible ? 'animate-marquee' : ''} ${isHovering ? 'pause-animation' : ''}`}
-               onMouseEnter={() => setIsHovering(true)}
-               onMouseLeave={() => setIsHovering(false)}>
+          <div className="flex gap-6 marquee-div"
+                onMouseEnter={() => {
+                  setIsHovering(true)
+                  if (tweenRef.current) tweenRef.current.pause()
+                }}
+                onMouseLeave={() => {
+                  setIsHovering(false)
+                  if (tweenRef.current) tweenRef.current.play()
+                }}>
            {[...brands, ...brands].map((brand, index) => (
               <div
                 key={index}
@@ -72,26 +83,7 @@ export default function BrandsSlider() {
          </div>
        </div>
 
-      <style jsx>{`
-        .animate-marquee {
-          display: flex;
-          width: max-content;
-          animation: marquee 40s linear infinite;
-        }
 
-        .pause-animation {
-          animation-play-state: paused;
-        }
-
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-      `}</style>
     </section>
   )
 }
