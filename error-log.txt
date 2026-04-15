@@ -1,0 +1,466 @@
+▲ Next.js 16.2.0 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.109:3000
+✓ Ready in 1933ms
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of D:\himel task\pnpm-lock.yaml as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * D:\himel task\indepent_escort_service\b_NsWKXuW44im\pnpm-lock.yaml
+
+Creating turbopack project {
+  dir: 'D:\\himel task\\indepent_escort_service\\b_NsWKXuW44im',
+  testMode: true
+}
+
+○ Compiling / ...
+
+-----
+[1m[31mFATAL[39m[0m: An unexpected Turbopack error occurred. A panic log has been written to C:\Users\sadia\AppData\Local\Temp\next-panic-b31a7ac701518da5def2e546da7130.log.
+
+To help make Turbopack better, report this error by clicking here: https://bugs.nextjs.org/search?category=turbopack-error-report&title=Turbopack%20Error%3A%20Failed%20to%20write%20app%20endpoint%20%2Fpage&body=Turbopack%20version%3A%20%600ca967b8%60%0ANext.js%20version%3A%20%600.0.0%60%0A%0AError%20message%3A%0A%60%60%60%0AFailed%20to%20write%20app%20endpoint%20%2Fpage%0A%0ACaused%20by%3A%0A-%20%5Bproject%5D%2Findepent_escort_service%2Fb_NsWKXuW44im%2Fapp%2Fglobals.css%20%5Bapp-client%5D%20%28css%29%0A-%20reading%20file%20%22D%3A%5C%5Chimel%20task%5C%5Cindepent_escort_service%5C%5Cb_NsWKXuW44im%5C%5Cnul%22%0A-%20Incorrect%20function.%20%28os%20error%201%29%0A%0ADebug%20info%3A%0A-%20Execution%20of%20get_written_endpoint_with_issues_operation%20failed%0A-%20Execution%20of%20endpoint_write_to_disk%20failed%0A-%20Execution%20of%20%3CAppEndpoint%20as%20Endpoint%3E%3A%3Aoutput%20failed%0A-%20Failed%20to%20write%20app%20endpoint%20%2Fpage%0A-%20Execution%20of%20%2Aall_asset_paths%20failed%0A-%20Execution%20of%20%2AAppEndpointOutput%3A%3Aoutput_assets%20failed%0A-%20Execution%20of%20AppEndpoint%3A%3Aoutput%20failed%0A-%20Execution%20of%20AppProject%3A%3Aapp_module_graphs%20failed%0A-%20Execution%20of%20%2A%3CAppEndpoint%20as%20Endpoint%3E%3A%3Aadditional_entries%20failed%0A-%20Execution%20of%20ModuleGraph%3A%3Afrom_graphs%20failed%0A-%20Execution%20of%20ModuleGraph%3A%3Acreate%20failed%0A-%20Execution%20of%20SingleModuleGraph%3A%3Anew_with_entries_visited_intern%20failed%0A-%20%5Bproject%5D%2Findepent_escort_service%2Fb_NsWKXuW44im%2Fapp%2Fglobals.css%20%5Bapp-client%5D%20%28css%29%0A-%20Execution%20of%20primary_chunkable_referenced_modules%20failed%0A-%20Execution%20of%20%3CCssModule%20as%20Module%3E%3A%3Areferences%20failed%0A-%20Execution%20of%20parse_css%20failed%0A-%20Execution%20of%20%3CPostCssTransformedAsset%20as%20Asset%3E%3A%3Acontent%20failed%0A-%20Execution%20of%20PostCssTransformedAsset%3A%3Aprocess%20failed%0A-%20Execution%20of%20evaluate_webpack_loader%20failed%0A-%20Execution%20of%20%3CDiskFileSystem%20as%20FileSystem%3E%3A%3Aread%20failed%0A-%20reading%20file%20%22D%3A%5C%5Chimel%20task%5C%5Cindepent_escort_service%5C%5Cb_NsWKXuW44im%5C%5Cnul%22%0A-%20Incorrect%20function.%20%28os%20error%201%29%0A%60%60%60&labels=Turbopack,Turbopack%20Panic%20Backtrace
+-----
+
+ GET / 500 in 9.4s (next.js: 9.0s, application-code: 441ms)
+ GET / 200 in 4.9s (next.js: 4.2s, application-code: 748ms)
+✓ Compiled in 1517ms
+✓ Compiled in 848ms
+✓ Compiled in 158ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET / 200 in 1996ms (next.js: 1031ms, application-code: 964ms)
+✓ Compiled in 1222ms
+ GET / 200 in 1000ms (next.js: 336ms, application-code: 664ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="scroll-smooth">
+                          <body
+                            className="font-sans antialiased bg-background text-foreground overflow-x-hidden"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3439:25)
+    at runWithFiberInDEV (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:965:74)
+    at emitPendingHydrationWarnings (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3438:13)
+    at completeWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:6885:102)
+    at runWithFiberInDEV (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:965:131)
+    at completeUnitOfWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9622:23)
+    at performUnitOfWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9551:58)
+    at renderRootConcurrent (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9534:71)
+    at performWorkOnRoot (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_08n0ru.._.js:2647:64) (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3439:25)
+✓ Compiled in 134ms
+ GET / 200 in 521ms (next.js: 248ms, application-code: 273ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="scroll-smooth">
+                          <body
+                            className="font-sans antialiased bg-background text-foreground overflow-x-hidden"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3439:25)
+    at runWithFiberInDEV (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:965:74)
+    at emitPendingHydrationWarnings (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3438:13)
+    at completeWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:6885:102)
+    at runWithFiberInDEV (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:965:131)
+    at completeUnitOfWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9622:23)
+    at performUnitOfWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9551:58)
+    at renderRootConcurrent (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9534:71)
+    at performWorkOnRoot (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_08n0ru.._.js:2647:64) (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3439:25)
+✓ Compiled in 205ms
+ GET / 200 in 535ms (next.js: 259ms, application-code: 276ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="scroll-smooth">
+                          <body
+                            className="font-sans antialiased bg-background text-foreground overflow-x-hidden"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3439:25)
+    at runWithFiberInDEV (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:965:74)
+    at emitPendingHydrationWarnings (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3438:13)
+    at completeWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:6885:102)
+    at runWithFiberInDEV (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:965:131)
+    at completeUnitOfWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9622:23)
+    at performUnitOfWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9551:58)
+    at renderRootConcurrent (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9534:71)
+    at performWorkOnRoot (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_08n0ru.._.js:2647:64) (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3439:25)
+✓ Compiled in 120ms
+ GET / 200 in 545ms (next.js: 98ms, application-code: 447ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="scroll-smooth">
+                          <body
+                            className="font-sans antialiased bg-background text-foreground overflow-x-hidden"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3439:25)
+    at runWithFiberInDEV (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:965:74)
+    at emitPendingHydrationWarnings (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3438:13)
+    at completeWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:6885:102)
+    at runWithFiberInDEV (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:965:131)
+    at completeUnitOfWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9622:23)
+    at performUnitOfWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9551:58)
+    at renderRootConcurrent (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9534:71)
+    at performWorkOnRoot (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_08n0ru.._.js:2647:64) (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3439:25)
+✓ Compiled in 91ms
+✓ Compiled in 2.4s
+ GET / 200 in 753ms (next.js: 186ms, application-code: 567ms)
+ GET / 200 in 362ms (next.js: 8ms, application-code: 354ms)
+ GET / 200 in 298ms (next.js: 16ms, application-code: 282ms)
+ GET / 200 in 300ms (next.js: 115ms, application-code: 184ms)
+ GET / 200 in 300ms (next.js: 180ms, application-code: 120ms)
+ GET / 200 in 305ms (next.js: 219ms, application-code: 85ms)
+✓ Compiled in 38ms
+ GET / 200 in 664ms (next.js: 249ms, application-code: 415ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="scroll-smooth">
+                          <body
+                            className="font-sans antialiased bg-background text-foreground overflow-x-hidden"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3439:25)
+    at runWithFiberInDEV (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:965:74)
+    at emitPendingHydrationWarnings (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3438:13)
+    at completeWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:6885:102)
+    at runWithFiberInDEV (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:965:131)
+    at completeUnitOfWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9622:23)
+    at performUnitOfWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9551:58)
+    at renderRootConcurrent (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9534:71)
+    at performWorkOnRoot (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_08n0ru.._.js:2647:64) (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3439:25)
+✓ Compiled in 188ms
+ GET / 200 in 687ms (next.js: 163ms, application-code: 524ms)
+ GET / 200 in 267ms (next.js: 15ms, application-code: 252ms)
+ GET / 200 in 246ms (next.js: 12ms, application-code: 234ms)
+ GET / 200 in 246ms (next.js: 62ms, application-code: 184ms)
+ GET / 200 in 246ms (next.js: 131ms, application-code: 115ms)
+ GET / 200 in 249ms (next.js: 100ms, application-code: 149ms)
+ GET / 200 in 139ms (next.js: 12ms, application-code: 128ms)
+ GET / 200 in 77ms (next.js: 16ms, application-code: 61ms)
+✓ Compiled in 66ms
+○ Compiling /work/bullit ...
+ GET /work/bullit 200 in 4.0s (next.js: 4.0s, application-code: 55ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_0.k5ddp._.js:2431:13)
+✓ Compiled in 142ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⨯ ReferenceError: ArrowRight is not defined
+    at ContentSlider (components\content-slider.tsx:180:16)
+  178 |             >
+  179 |               Bekijk al ons werk
+> 180 |               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x...
+      |                ^
+  181 |             </a>
+  182 |           </div>
+  183 |         </div> {
+  digest: '1079374714'
+}
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⨯ ReferenceError: ArrowRight is not defined
+    at ContentSlider (components\content-slider.tsx:180:16)
+  178 |             >
+  179 |               Bekijk al ons werk
+> 180 |               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x...
+      |                ^
+  181 |             </a>
+  182 |           </div>
+  183 |         </div> {
+  digest: '1079374714'
+}
+⨯ ReferenceError: ArrowRight is not defined
+    at ContentSlider (components\content-slider.tsx:180:16)
+  178 |             >
+  179 |               Bekijk al ons werk
+> 180 |               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x...
+      |                ^
+  181 |             </a>
+  182 |           </div>
+  183 |         </div> {
+  digest: '1079374714'
+}
+ GET / 500 in 1474ms (next.js: 558ms, application-code: 916ms)
+ GET / 500 in 467ms (next.js: 14ms, application-code: 452ms)
+ GET / 500 in 294ms (next.js: 21ms, application-code: 273ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Compiled in 172ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /work/bullit 200 in 903ms (next.js: 116ms, application-code: 787ms)
+ GET /work/bullit 200 in 335ms (next.js: 28ms, application-code: 307ms)
+ GET / 200 in 1182ms (next.js: 377ms, application-code: 805ms)
+ GET / 200 in 592ms (next.js: 25ms, application-code: 568ms)
+ GET / 200 in 407ms (next.js: 18ms, application-code: 389ms)
+ GET / 200 in 262ms (next.js: 32ms, application-code: 231ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" className="scroll-smooth">
+                          <body
+                            className="font-sans antialiased bg-background text-foreground overflow-x-hidden"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+    at <unknown> (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3439:25)
+    at runWithFiberInDEV (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:965:74)
+    at emitPendingHydrationWarnings (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3438:13)
+    at completeWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:6885:102)
+    at runWithFiberInDEV (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:965:131)
+    at completeUnitOfWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9622:23)
+    at performUnitOfWork (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9557:28)
+    at workLoopConcurrentByScheduler (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9551:58)
+    at renderRootConcurrent (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9534:71)
+    at performWorkOnRoot (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:9061:150)
+    at performWorkOnRootViaSchedulerTask (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:10255:9)
+    at MessagePort.performWorkUntilDeadline (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_08n0ru.._.js:2647:64) (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_compiled_react-dom_0y4y3p8._.js:3439:25)
+✓ Compiled in 118ms
+ GET / 200 in 860ms (next.js: 232ms, application-code: 628ms)
+ GET /work/bullit 200 in 867ms (next.js: 463ms, application-code: 405ms)
+ GET / 200 in 342ms (next.js: 17ms, application-code: 325ms)
+ GET /work/bullit 200 in 487ms (next.js: 69ms, application-code: 417ms)
+ GET / 200 in 556ms (next.js: 11ms, application-code: 545ms)
+ GET / 200 in 552ms (next.js: 14ms, application-code: 538ms)
+ GET / 200 in 455ms (next.js: 19ms, application-code: 436ms)
+ GET / 200 in 317ms (next.js: 31ms, application-code: 285ms)
+ GET / 200 in 301ms (next.js: 131ms, application-code: 170ms)
+ GET / 200 in 103ms (next.js: 22ms, application-code: 82ms)
+✓ Compiled in 522ms
+[browser] ./indepent_escort_service/b_NsWKXuW44im/components/content-slider.tsx:233:9
+Expression expected
+  231 |   )
+  232 | }
+> 233 |         })
+      |         ^
+  234 |       },
+  235 |       { threshold: 0.1 }
+  236 |     )
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./indepent_escort_service/b_NsWKXuW44im/components/content-slider.tsx [Client Component Browser]
+    ./indepent_escort_service/b_NsWKXuW44im/app/page.tsx [Client Component Browser]
+    ./indepent_escort_service/b_NsWKXuW44im/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./indepent_escort_service/b_NsWKXuW44im/components/content-slider.tsx [Client Component SSR]
+    ./indepent_escort_service/b_NsWKXuW44im/app/page.tsx [Client Component SSR]
+    ./indepent_escort_service/b_NsWKXuW44im/app/page.tsx [Server Component] 
+    at handleErrors (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_client_0t3cxkb._.js:13828:21)
+    at processMessage (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_client_0t3cxkb._.js:13891:21)
+    at WebSocket.handleMessage (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_client_0t3cxkb._.js:13335:52) (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_client_0t3cxkb._.js:13828:21)
+[browser] ./indepent_escort_service/b_NsWKXuW44im/components/content-slider.tsx:233:9
+Expression expected
+  231 |   )
+  232 | }
+> 233 |         })
+      |         ^
+  234 |       },
+  235 |       { threshold: 0.1 }
+  236 |     )
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./indepent_escort_service/b_NsWKXuW44im/components/content-slider.tsx [Client Component Browser]
+    ./indepent_escort_service/b_NsWKXuW44im/app/page.tsx [Client Component Browser]
+    ./indepent_escort_service/b_NsWKXuW44im/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./indepent_escort_service/b_NsWKXuW44im/components/content-slider.tsx [Client Component SSR]
+    ./indepent_escort_service/b_NsWKXuW44im/app/page.tsx [Client Component SSR]
+    ./indepent_escort_service/b_NsWKXuW44im/app/page.tsx [Server Component] 
+    at handleErrors (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_client_0t3cxkb._.js:13828:21)
+    at processMessage (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_client_0t3cxkb._.js:13891:21)
+    at WebSocket.handleMessage (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_client_0t3cxkb._.js:13335:52) (file://D:/himel task/indepent_escort_service/b_NsWKXuW44im/.next/dev/static/chunks/0uy1_next_dist_client_0t3cxkb._.js:13828:21)
+^C
