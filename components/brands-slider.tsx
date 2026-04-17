@@ -68,7 +68,7 @@ export default function BrandsSlider() {
            {[...brands, ...brands].map((brand, index) => (
               <div
                 key={index}
-                 className="flex-shrink-0 w-72 h-64 border-2 border-gray-100 group-hover/card:border-blue-500 rounded-[32px] flex items-center justify-center bg-gray-50/50 hover:bg-white transition-all duration-500 cursor-pointer group/card"
+                 className="flex-shrink-0 w-72 h-64 border-2 border-gray-400 group-hover/card:border-blue-500 rounded-[32px] flex items-center justify-center bg-gray-50/50 hover:bg-white transition-all duration-500 cursor-pointer group/card"
               >
                 <div className="relative p-10 w-full h-full flex items-center justify-center">
                   <Image

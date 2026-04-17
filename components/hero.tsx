@@ -133,11 +133,12 @@ const Hero = () => {
           className="card-item relative w-[280px] h-[380px] rounded-[30px] overflow-hidden shadow-2xl cursor-pointer rotate-[6deg] mt-10 md:mt-20 md:-mr-8"
           data-rotation="6"
         >
-          <Image 
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800" 
-            alt="Team" 
-            fill
-            className="object-cover"
+          <video
+            src="/Loop Salontopper.mp4"
+            autoPlay
+            loop
+            muted
+            className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
 
@@ -159,11 +160,12 @@ const Hero = () => {
           className="card-item relative w-[280px] h-[380px] rounded-[30px] overflow-hidden shadow-2xl cursor-pointer rotate-[8deg] mt-5 md:mt-12"
           data-rotation="8"
         >
-          <Image 
-            src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=800" 
-            alt="Production" 
-            fill
-            className="object-cover"
+          <video
+            src="/petrolhead-loop.mp4"
+            autoPlay
+            loop
+            muted
+            className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute bottom-6 left-6 bg-red-600 text-white font-black italic px-3 py-1 text-lg uppercase tracking-tighter transform -skew-x-12">
             Elke M2 Gewoon

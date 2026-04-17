@@ -1,93 +1,126 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import React, { useRef } from "react";
+import { gsap } from "gsap";
+import { Mail, Flame, Linkedin, Instagram, Youtube } from "lucide-react";
 
-export default function ContactFooter() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+const Footer = () => {
+  const bigTextRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const handleMouseEnter = () => {
+    gsap.to(bigTextRef.current, {
+      y: 0,
+      duration: 0.6,
+      ease: "power3.out",
+    });
+  };
+
+  const handleMouseLeave = () => {
+    gsap.to(bigTextRef.current, {
+      y: "100%",
+      duration: 0.6,
+      ease: "power3.in",
+    });
+  };
 
   return (
-    <section
-      ref={sectionRef}
-      className={`bg-white px-6 py-20 md:py-28 transition-all duration-1000 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Top: "Let's Get Hyped!" */}
-        <div className="text-center mb-6">
-          <p className="text-2xl md:text-3xl font-bold text-black/60 tracking-wide">
-            Let's Get Hyped!
-          </p>
-        </div>
-
-        {/* Main heading: "Get Results" */}
-        <div className="text-center mb-20">
-          <h2 className="text-7xl md:text-8xl lg:text-9xl font-black text-black tracking-tighter leading-[1.1]">
-            Get Results
-          </h2>
-        </div>
-
-        {/* Two‑column layout: Contact details + Address */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 mb-20">
-          {/* Left: Contact */}
-          <div>
-            <h3 className="text-3xl md:text-4xl font-black text-black mb-6">
-              Contact
-            </h3>
-            <div className="space-y-3 text-black/70 text-base md:text-lg font-medium">
-              <p>
-                <span className="font-semibold text-black">Email:</span>{" "}
-                <a
-                  href="mailto:info@gethyped.nl"
-                  className="hover:text-black transition-colors"
-                >
-                  info@gethyped.nl
-                </a>
-              </p>
-              <p>
-                <span className="font-semibold text-black">Phone:</span>{" "}
-                <a
-                  href="tel:+31615337496"
-                  className="hover:text-black transition-colors"
-                >
-                  +31 6 1533 7496
-                </a>
-              </p>
+    <footer className="relative w-full bg-[#F2EDE4] pt-20 overflow-hidden font-sans text-black">
+      {/* Top Section */}
+      <div className="flex flex-col items-center text-center px-4 mb-32">
+        <h2 className="text-6xl md:text-8xl font-black tracking-tight text-black mb-8 uppercase">
+          Let's Get Hyped!
+        </h2>
+        
+        <div className="flex flex-wrap justify-center gap-4">
+          {/* Mail Button - Text and Icons are Black/White */}
+          <button className="group flex items-center border-2 border-black rounded-full overflow-hidden hover:bg-black hover:text-white transition-all duration-300">
+            <span className="px-6 py-3 font-bold uppercase text-sm">Mail ons direct</span>
+            <div className="bg-black p-3 text-white group-hover:bg-white group-hover:text-black transition-colors">
+              <Mail size={20} />
             </div>
-          </div>
+          </button>
 
-          {/* Right: Address */}
-          <div>
-            <h3 className="text-3xl md:text-4xl font-black text-black mb-6">
-              Adres
-            </h3>
-            <div className="space-y-1 text-black/70 text-base md:text-lg font-medium leading-relaxed">
-              <p>Belrumestraat 6,</p>
-              <p>7000 Ede, The Netherlands</p>
+          {/* Results Button */}
+          <button className="flex items-center bg-[#FF5F38] text-white rounded-full overflow-hidden border-2 border-black hover:bg-black transition-all duration-300 group">
+            <span className="px-6 py-3 font-bold uppercase text-sm">Get Results</span>
+            <div className="bg-black m-1 p-2 rounded-full text-white group-hover:bg-white group-hover:text-black transition-colors">
+              <Flame size={20} fill="currentColor" />
             </div>
-          </div>
-        </div>
-
-        {/* Footer copyright */}
-        <div className="pt-12 border-t border-black/10 text-center">
-          <p className="text-black/50 text-sm md:text-base font-medium">
-            © 2025 Get Hyped
-          </p>
+          </button>
         </div>
       </div>
-    </section>
+
+      {/* The Angled Section */}
+      <div 
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="relative bg-[#E6E0D3] pt-32 pb-12 px-8 md:px-16 border-t border-black/10"
+        style={{ clipPath: "polygon(0 15%, 100% 0, 100% 100%, 0% 100%)" }}
+      >
+        {/* Floating Pink Badge */}
+        <div className="absolute top-10 right-10 md:right-20 w-24 h-24 bg-[#E2B1FF] rounded-full flex items-center justify-center text-center p-2 border-2 border-black rotate-12 shadow-sm z-10">
+          <span className="text-[10px] font-black leading-tight uppercase text-black">Get Results • Get Hyped • Get Noticed</span>
+          <span className="absolute font-black text-xl text-black">GH</span>
+        </div>
+
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-end relative z-20">
+          <div className="hidden md:block"></div>
+
+          {/* Column 2: Navigation & Socials */}
+          <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-wrap justify-center gap-2">
+              {['Expertises', 'Work', 'About', 'Contact'].map((item) => (
+                <button key={item} className="bg-white border-2 border-black px-5 py-2 rounded-xl text-xs font-black uppercase tracking-wider text-black hover:bg-black hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1">
+                  {item}
+                </button>
+              ))}
+            </div>
+            
+            <div className="flex flex-col items-center gap-4">
+              <span className="font-black text-xs uppercase tracking-[0.2em] text-black">Follow us</span>
+              <div className="flex gap-3">
+                {[<Linkedin size={18}/>, "TT", <Instagram size={18}/>, <Youtube size={18}/>].map((icon, i) => (
+                  <div key={i} className="w-11 h-11 bg-white border-2 border-black rounded-full flex items-center justify-center text-black cursor-pointer hover:bg-black hover:text-white transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                    {typeof icon === 'string' ? <span className="text-[10px] font-black">{icon}</span> : icon}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Column 3: Contact Info - Colors set to Solid Black */}
+          <div className="text-sm space-y-4 text-center md:text-left text-black">
+            <div>
+              <p className="font-black uppercase tracking-widest text-[11px] mb-1">Contact</p>
+              <p className="font-bold text-lg">info@gethyped.nl</p>
+              <p className="font-bold">+31 6 1533 7496</p>
+            </div>
+            <div>
+              <p className="font-black uppercase tracking-widest text-[11px] mb-1">Adres</p>
+              <p className="font-bold text-lg">Amsterdam, NL</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar - Increased contrast */}
+        <div className="max-w-7xl mx-auto mt-20 pt-8 border-t-2 border-black flex justify-between text-[10px] uppercase font-black tracking-widest text-black">
+          <p>© 2026 Get Hyped</p>
+          <p>Design by Dylan</p>
+        </div>
+
+        {/* GSAP Animated Text */}
+        <div className="absolute bottom-0 left-4 overflow-hidden pointer-events-none">
+          <div 
+            ref={bigTextRef}
+            className="translate-y-full text-[12vw] font-black leading-none text-black select-none"
+            style={{ fontFamily: 'Impact, sans-serif' }}
+          >
+            GETHYPED
+          </div>
+        </div>
+      </div>
+    </footer>
   );
-}
+};
+
+export default Footer;

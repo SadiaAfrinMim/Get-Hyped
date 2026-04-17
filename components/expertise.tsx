@@ -13,9 +13,9 @@ const expertiseItems = [
     buttonColor: 'bg-orange-500 text-white',
     labelBg: 'bg-white/50',
     labelText: 'text-black',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop',
+    video: '/215472.mp4',
     borderColor: 'border-orange-500',
-  },
+  },  
   {
     number: '02',
     title: 'Content creation',
@@ -37,7 +37,7 @@ const expertiseItems = [
     buttonColor: 'bg-white text-black',
     labelBg: 'bg-white/50',
     labelText: 'text-black',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop',
+    video: '/39183-421020269_medium.mp4',
     borderColor: 'border-orange-500',
   },
   {
@@ -105,12 +105,22 @@ export default function Expertise() {
                   {/* RIGHT IMAGE */}
                   <div className="flex justify-center lg:justify-end">
                     <div className={`relative w-full max-w-sm aspect-square rounded-[32px] overflow-hidden border-[10px] ${item.borderColor} shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500`}>
-                      <Image
-                        fill
-                        src={item.image}
-                        alt={item.title}
-                        className="object-cover"
-                      />
+                      {item.video ? (
+                        <video
+                          className="absolute inset-0 w-full h-full object-cover"
+                          src={item.video}
+                          autoPlay
+                          muted
+                          loop
+                        />
+                      ) : (
+                        <Image
+                          fill
+                          src={item.image}
+                          alt={item.title}
+                          className="object-cover"
+                        />
+                      )}
                     </div>
                   </div>
                 </div>

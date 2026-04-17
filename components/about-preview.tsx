@@ -36,10 +36,13 @@ export default function AboutPreview() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Image */}
           <div className="relative h-[500px] w-full rounded-3xl overflow-hidden border-8 border-gray-800 shadow-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop"
-              alt="Anniek Bril - Founder"
+            <video
+              src="/19459-303877310.mp4"
               className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
             />
           </div>
 

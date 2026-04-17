@@ -20,7 +20,7 @@ const contentCards = [
     title: 'Zacht in smaak, sterk in beeld',
     description: 'Met to-the-point visuals brengen we de pure smaak van Jamaica over.',
     label: 'Roasta',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=800&fit=crop',
+    video: '/Bullit _ Loop.mp4',
     hexColor: '#1A73E8',
   },
   {
@@ -53,16 +53,16 @@ export default function ContentSlider() {
   useGSAP(() => {
     const cards = gsap.utils.toArray<HTMLElement>('.card-item')
     cards.forEach((card) => {
-      const img = card.querySelector('img')
+      const media = card.querySelector('img, video')
       const contentBox = card.querySelector('.content-box')
 
       card.addEventListener('mouseenter', () => {
-        gsap.to(img, { scale: 1.05, duration: 0.5, ease: 'power2.out' })
+        gsap.to(media, { scale: 1.05, duration: 0.5, ease: 'power2.out' })
         gsap.to(contentBox, { y: -10, duration: 0.5, ease: 'power2.out' })
       })
 
       card.addEventListener('mouseleave', () => {
-        gsap.to(img, { scale: 1, duration: 0.5, ease: 'power2.out' })
+        gsap.to(media, { scale: 1, duration: 0.5, ease: 'power2.out' })
         gsap.to(contentBox, { y: 0, duration: 0.5, ease: 'power2.out' })
       })
     })
@@ -107,13 +107,25 @@ export default function ContentSlider() {
                 className="relative h-[550px] rounded-[45px] overflow-hidden border-[6px] transition-all duration-500 hover:shadow-2xl"
                 style={{ borderColor: card.hexColor }}
               >
-                {/* Image */}
-                <Image
-                  fill
-                  src={card.image}
-                  alt={card.title}
-                  className="object-cover"
-                />
+                {/* Media */}
+                {card.video ? (
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  >
+                    <source src={card.video} type="video/mp4" />
+                  </video>
+                ) : (
+                  <Image
+                    fill
+                    src={card.image}
+                    alt={card.title}
+                    className="object-cover"
+                  />
+                )}
 
                 {/* Content Box */}
                 <div
