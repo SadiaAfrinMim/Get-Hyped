@@ -3,13 +3,40 @@
 import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { Mail, Flame, Linkedin, Instagram, Youtube } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   const bigTextRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
+  const angledRef = useRef<HTMLDivElement>(null);
+  const badgeRef = useRef<HTMLDivElement>(null);
+  const bottomLogoRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = () => {
     gsap.to(bigTextRef.current, {
       y: 0,
+      duration: 0.6,
+      ease: "power3.out",
+    });
+    gsap.to(logoRef.current, {
+      opacity: 1,
+      scale: 1.1,
+      duration: 0.6,
+      ease: "power3.out",
+    });
+    gsap.to(angledRef.current, {
+      backgroundColor: "#D4C7B0",
+      duration: 0.6,
+      ease: "power3.out",
+    });
+    gsap.to(badgeRef.current, {
+      rotation: 0,
+      scale: 1.1,
+      duration: 0.6,
+      ease: "power3.out",
+    });
+    gsap.to(bottomLogoRef.current, {
+      scale: 1.1,
       duration: 0.6,
       ease: "power3.out",
     });
@@ -18,6 +45,28 @@ const Footer = () => {
   const handleMouseLeave = () => {
     gsap.to(bigTextRef.current, {
       y: "100%",
+      duration: 0.6,
+      ease: "power3.in",
+    });
+    gsap.to(logoRef.current, {
+      opacity: 0,
+      scale: 1,
+      duration: 0.6,
+      ease: "power3.in",
+    });
+    gsap.to(angledRef.current, {
+      backgroundColor: "#E6E0D3",
+      duration: 0.6,
+      ease: "power3.in",
+    });
+    gsap.to(badgeRef.current, {
+      rotation: 12,
+      scale: 1,
+      duration: 0.6,
+      ease: "power3.in",
+    });
+    gsap.to(bottomLogoRef.current, {
+      scale: 1,
       duration: 0.6,
       ease: "power3.in",
     });
@@ -51,16 +100,22 @@ const Footer = () => {
       </div>
 
       {/* The Angled Section */}
-      <div 
+      <div
+        ref={angledRef}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className="relative bg-[#E6E0D3] pt-32 pb-12 px-8 md:px-16 border-t border-black/10"
         style={{ clipPath: "polygon(0 15%, 100% 0, 100% 100%, 0% 100%)" }}
       >
         {/* Floating Pink Badge */}
-        <div className="absolute top-10 right-10 md:right-20 w-24 h-24 bg-[#E2B1FF] rounded-full flex items-center justify-center text-center p-2 border-2 border-black rotate-12 shadow-sm z-10">
+        <div ref={badgeRef} className="absolute top-10 right-10 md:right-20 w-24 h-24 bg-[#E2B1FF] rounded-full flex items-center justify-center text-center p-2 border-2 border-black rotate-12 shadow-sm z-10">
           <span className="text-[10px] font-black leading-tight uppercase text-black">Get Results • Get Hyped • Get Noticed</span>
-          <span className="absolute font-black text-xl text-black">GH</span>
+          
+        </div>
+
+        {/* Hover Logo Overlay */}
+        <div ref={logoRef} className="absolute inset-0 pointer-events-none z-5" style={{ opacity: 0, transform: 'scale(1)' }}>
+          
         </div>
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-end relative z-20">
@@ -103,21 +158,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar - Increased contrast */}
-        <div className="max-w-7xl mx-auto mt-20 pt-8 border-t-2 border-black flex justify-between text-[10px] uppercase font-black tracking-widest text-black">
-          <p>© 2026 Get Hyped</p>
-          <p>Design by Dylan</p>
+        <div className="max-w-7xl mx-auto mt-20 pt-8 border-t-2 border-black flex justify-between items-center text-[10px] uppercase font-black tracking-widest text-black">
+          <div ref={bottomLogoRef} className="flex items-center gap-2">
+            <Image src="/logo.png" alt="Logo" width={80} height={30} />
+            <p>© 2026 Get Hyped</p>
+          </div>
+          <p>Design by Sadia</p>
         </div>
 
-        {/* GSAP Animated Text */}
-        <div className="absolute bottom-0 left-4 overflow-hidden pointer-events-none">
-          <div 
-            ref={bigTextRef}
-            className="translate-y-full text-[12vw] font-black leading-none text-black select-none"
-            style={{ fontFamily: 'Impact, sans-serif' }}
-          >
-            GETHYPED
-          </div>
-        </div>
+       
       </div>
     </footer>
   );

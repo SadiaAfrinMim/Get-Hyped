@@ -2,77 +2,132 @@
 
 import { Flame, Menu, X } from 'lucide-react'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useRef } from 'react'
+import Image from 'next/image'
+import { useGSAP } from '@gsap/react'
+import { gsap } from 'gsap'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const mobileMenuRef = useRef(null)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+  useGSAP(() => {
+    gsap.fromTo(
+      '.navbar',
+      { y: -100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }
+    )
   }, [])
 
+  useGSAP(() => {
+    if (menuOpen && mobileMenuRef.current) {
+      gsap.fromTo(
+        mobileMenuRef.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.3, ease: 'power3.out' }
+      )
+    }
+  }, [menuOpen])
+
   return (
-    <header className={`w-full px-6 py-4 bg-${isScrolled ? 'transparent' : '[#FDF8F1]'}   flex items-center justify-between sticky top-0 z-50`}>
+    <>
+      {/* HEADER */}
+      <header className="w-full px-4 sm:px-6 py-4 bg-[#FDF8F1] flex items-center justify-between z-50 navbar top-0 relative">
 
-      {/* Logo */}
-      <div className="text-2xl font-black tracking-tight text-black">
-        GETHYPED
-      </div>
+        <Link href="/" className="flex-shrink-0">
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={100}
+            height={35}
+            className="sm:w-[120px] sm:h-[40px]"
+            priority
+          />
+        </Link>
 
-      {/* Middle Menu - Desktop */}
-      <nav className={`hidden md:flex items-center ${isScrolled ? 'bg-transparent' : 'bg-[#FDF8F1]'} rounded-lg px-5 py-2 shadow-sm border`}>
-        <ul className="flex gap-6 text-sm font-medium text-black">
-          <li><Link href="#">Expertises</Link></li>
-          <li><Link href="#">Work</Link></li>
-          <li><Link href="#">About</Link></li>
-          <li><Link href="#">Contact</Link></li>
-        </ul>
-      </nav>
+        {/* Desktop menu */}
+        <nav className="hidden md:flex items-center bg-[#FDF8F1] rounded-lg px-5 py-2 shadow-sm border">
+          <ul className="flex gap-6 text-sm font-medium text-black">
+            <li><Link href="/expertises">Expertises</Link></li>
+            <li><Link href="/work">Work</Link></li>
+            <li><Link href="/about">About</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
+          </ul>
+        </nav>
 
-      {/* Mobile Menu Button */}
-      <button
-        className={`md:hidden flex items-center justify-center w-10 h-10 ${isScrolled ? 'bg-transparent' : 'bg-[#FDF8F1]'} rounded-lg border text-black`}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        {menuOpen ? <X size={20} /> : <Menu size={20} />}
-      </button>
+        {/* CTA */}
+        <button className="hidden md:flex items-center gap-2 bg-orange-500 hover:bg-orange-600 transition px-4 py-2 rounded-lg font-medium text-white shadow-sm">
+          Get Results
+          <span className="bg-white/20 p-1 rounded-md">
+            <Flame size={16} />
+          </span>
+        </button>
 
-      {/* CTA Button - Hidden on mobile, visible on md+ */}
-      <button className="hidden md:flex items-center gap-2 bg-orange-500 hover:bg-orange-600 transition px-4 py-2 rounded-lg font-medium text-white shadow-sm">
-        Get Results
-        <span className="bg-white/20 p-1 rounded-md">
-          <Flame size={16} className="text-white" />
-        </span>
-      </button>
+        {/* Mobile button */}
+        <button
+          className="md:hidden  flex items-center justify-center w-10 h-10 bg-[#FDF8F1] rounded-lg border"
+          onClick={() => setMenuOpen(true)}
+        >
+          <Menu className='text-black' size={22} />
+        </button>
+      </header>
 
-      {/* Mobile Menu */}
+      {/* FULL SCREEN MOBILE MENU */}
       {menuOpen && (
-        <div className={`absolute top-full left-0 right-0 ${isScrolled ? 'bg-transparent' : 'bg-[#FDF8F1]'} border-b shadow-lg md:hidden`}>
-          <nav className="px-6 py-4">
-            <ul className="flex flex-col gap-4 text-sm font-medium text-black">
-              <li><Link href="#" onClick={() => setMenuOpen(false)}>Expertises</Link></li>
-              <li><Link href="#" onClick={() => setMenuOpen(false)}>Work</Link></li>
-              <li><Link href="#" onClick={() => setMenuOpen(false)}>About</Link></li>
-              <li><Link href="#" onClick={() => setMenuOpen(false)}>Contact</Link></li>
-            </ul>
+        <div className="fixed m-2 rounded-2xl inset-0 bg-pink-200 z-50 flex flex-col">
+
+          <div
+            ref={mobileMenuRef}
+            className="flex flex-col h-full w-full p-6"
+          >
+
+            {/* Top bar */}
+            <div className="flex justify-between items-center">
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                width={90}
+                height={30}
+              />
+
+              <button onClick={() => setMenuOpen(false)}>
+                <X size={28} />
+              </button>
+            </div>
+
+            {/* MENU CENTER */}
+            <div className="flex flex-col items-center justify-center flex-1 text-center gap-2">
+
+              <Link onClick={() => setMenuOpen(false)} href="/expertises" className="text-2xl bg-white px-4 py-2 rounded-2xl text-black font-semibold hover:text-orange-500">
+                Expertises
+              </Link>
+
+              <Link onClick={() => setMenuOpen(false)} href="/work" className="text-2xl  bg-white px-4 py-2 rounded-2xl text-black font-semibold hover:text-orange-500">
+                Work
+              </Link>
+
+              <Link onClick={() => setMenuOpen(false)} href="/about" className="text-2xl  bg-white px-4 py-2 rounded-2xl text-black font-semibold hover:text-orange-500">
+                About
+              </Link>
+
+              <Link onClick={() => setMenuOpen(false)} href="/contact" className="text-2xl bg-white px-4 py-2 rounded-2xl text-black font-semibold hover:text-orange-500">
+                Contact
+              </Link>
+
+            </div>
+
+            {/* BOTTOM CTA */}
             <button
-              className="mt-4 w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 transition px-4 py-2 rounded-lg font-medium text-white shadow-sm"
               onClick={() => setMenuOpen(false)}
+              className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 transition px-5 py-4 rounded-xl font-medium text-white text-lg"
             >
               Get Results
-              <span className="bg-white/20 p-1 rounded-md">
-                <Flame size={16} className="text-white" />
-              </span>
+              <Flame size={18} />
             </button>
-          </nav>
+
+          </div>
         </div>
       )}
-
-    </header>
+    </>
   )
 }
